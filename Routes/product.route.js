@@ -28,7 +28,7 @@ router.post(`/`, (req,res) => {
     }
     Product.create(reqBody)
     .then(product => res.status(200).send({success:true, product:product, mssg:'Product created'}))
-    .catch(err => res.status(500).send({success:false, mssg:'Product Not Found', err:err}))
+    .catch(err => res.status(500).send({success:false, mssg:'Product Not created', err:err}))
 })
 
 

@@ -13,6 +13,10 @@ const categoryRoutes = require('./Routes/category.route')
 const orderRoutes = require('./Routes/order.route')
 const userRoutes = require('./Routes/user.route')
 
+// importing helper functions
+const authJwt = require('./Helpers/jwt')
+const errorHandler = require('./Helpers/errorHandler')
+
 
 
 
@@ -34,6 +38,11 @@ app.use(express.json())
 // to log requests comming from front-end
 app.use(morgan('tiny'))
 
+// to authenticate all APIs using JWT token
+app.use(authJwt())
+
+// to handle errors
+app.use(errorHandler)
 
 
 
